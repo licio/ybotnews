@@ -58,10 +58,10 @@ def newsHandler(user,command,args,mess):
     import simplejson
     data = simplejson.loads(result)
     mensagem = "\n Noticia:"
-	for idr in xrange(0,2):
+    for idr in xrange(0,3):
     	retcont = data['query']['results']['a'][idr]['content']
     	returl = data['query']['results']['a'][idr]['href']
-		mensagem = mensagem + retcont + "\n FONTE:" + returl 
+        mensagem = mensagem + retcont + "\n FONTE:" + returl + "\n" 
 
 	
     return "NEWS",'%s' % mensagem
