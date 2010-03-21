@@ -55,15 +55,18 @@ def newsHandler(user,command,args,mess):
 
     requel = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Fwww.estadao.com.br%2Fbusca%2F" + str(args) + "'%20and%20xpath%3D%22%2F%2Fdiv%5B%40class%3D'resultado-texto'%5D%2Fh2%2Fa%22&format=json"
     result = urllib2.urlopen(requel).read()
-    import simplejson,random
+    import simplejson
     data = simplejson.loads(result)
-    idr = random.randrange(1,10)
-    retcont = data['query']['results']['a'][idr]['content']
-    returl = data['query']['results']['a'][idr]['href']
+    mensagem = "\n Noticia:"
+	for idr in xrange(0,2)
+    	retcont = data['query']['results']['a'][idr]['content']
+    	returl = data['query']['results']['a'][idr]['href']
+		mensagem = mensagem + retcont + "\n FONTE:" + returl 
 
 	
-    return "NEWS",'%s \n FONTE: %s' % (retcont, returl)
+    return "NEWS",'%s' % mensagem
     
+
     
 i18n['en']['COMPE']='%s'
 def compeHandler(user,command,args,mess):
